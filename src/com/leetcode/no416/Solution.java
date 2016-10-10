@@ -16,11 +16,11 @@ public class Solution {
         else
             return false;
         boolean[] rec = new boolean[nums.length];
-        if(search(nums, rec, sum) == true) {
+        if(search(nums, rec, sum)) {
             for(int i = 0; i < nums.length; i ++)
                 if(rec[i])
                     sum -= nums[i];
-            return sum == 0 ? true : false;
+            return sum == 0;
         }
         return false;
     }
