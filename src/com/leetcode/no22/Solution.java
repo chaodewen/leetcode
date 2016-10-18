@@ -50,7 +50,7 @@ public class Solution {
 //			return list;
 //		}
 //	}
-	List<String> list = new ArrayList<String>();
+	List<String> list = new ArrayList<>();
 	public List<String> generateParenthesis(int n) {
 		generate(n, n, "");
 		return list;
@@ -60,12 +60,10 @@ public class Solution {
 			list.add(str);
 			return;
 		}
-		if(left > 0) {
+		if(left > 0)
 			generate(left - 1, right, str + "(");
-		}
-		if(right > 0 && right > left) {
+		if(right > 0 && right > left)
 			generate(left, right - 1, str + ")");
-		}
 	}
 	public static void main(String[] args) {
 		System.out.println(new Solution().generateParenthesis(2));
