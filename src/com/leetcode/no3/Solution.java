@@ -7,17 +7,14 @@ public class Solution {
 			boolean[] hasChar = new boolean[200];
 			int cnt = 0;
 			for(int j = i; j < len; j ++) {
-				if(hasChar[s.charAt(j) - ' ']) {
+				if(hasChar[s.charAt(j) - ' '])
 					break;
-				}
 				else {
 					hasChar[s.charAt(j) - ' '] = true;
 					cnt ++;
 				}
 			}
-			if(max < cnt) {
-				max = cnt;
-			}
+			max = Math.max(max, cnt);
 		}
 		return max;
 	}
