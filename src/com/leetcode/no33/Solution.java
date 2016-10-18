@@ -5,24 +5,19 @@ public class Solution {
 		int len = nums.length, low = 0, high = len - 1;
 		while(low <= high) {
 			int pos = (low + high) / 2;
-			if(nums[pos] == target) {
+			if(nums[pos] == target)
 				return pos;
-			}
 			else if(nums[pos] >= nums[low]) {
-				if(target >= nums[low] && target < nums[pos]) {
+				if(target >= nums[low] && target < nums[pos])
 					high = pos - 1;
-				}
-				else {
+				else
 					low = pos + 1;
-				}
 			}
 			else {
-				if(target <= nums[high] && target > nums[pos]) {
+				if(target <= nums[high] && target > nums[pos])
 					low = pos + 1;
-				}
-				else {
+				else
 					high = pos - 1;
-				}
 			}
 		}
 		return -1;

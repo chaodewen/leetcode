@@ -2,8 +2,8 @@ package com.leetcode.no27;
 
 public class Solution {
 	public int removeElement(int[] nums, int val) {
-		int cnt = 0, last = nums.length - 1;
-		for(int i = 0; i <= last; i ++)
+		int cnt = 0;
+		for(int i = 0; i < nums.length; i ++)
 			if(nums[i] != val)
 				nums[cnt++] = nums[i];
 		return cnt;
