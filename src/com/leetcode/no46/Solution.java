@@ -3,48 +3,50 @@ package com.leetcode.no46;
 import java.util.ArrayList;
 import java.util.List;
 
+// public class Solution {
+//     public List<List<Integer>> permute(int[] nums) {
+//         return doPermutations(nums, nums.length);
+//     }
+//     private List<List<Integer>> doPermutations(int[] nums, int len) {
+//     	List<List<Integer>> lists = new ArrayList<List<Integer>>();
+//     	if(len == 0)
+//     		return lists;
+//     	if(len == 1) {
+//     		for(int num : nums) {
+//     			List<Integer> list = new ArrayList<>();
+//     			list.add(num);
+//     			lists.add(list);
+//     		}
+//     		return lists;
+//     	}
+//     	for(int i = 0; i < nums.length; i ++) {
+//     		List<List<Integer>> tempLists = doPermutations(nums, len - 1);
+//     		for(List<Integer> list : tempLists)
+//     			if(!list.contains(nums[i])) {
+//     				list.add(nums[i]);
+//     				lists.add(list);
+//     			}
+//     	}
+//     	return lists;
+//     }
+// }
+
 public class Solution {
 	public List<List<Integer>> permute(int[] nums) {
-		return doPermutation(nums, nums.length);
-	}
-	private List<List<Integer>> doPermutation(int[] nums, int len) {
 		List<List<Integer>> lists = new ArrayList<List<Integer>>();
-		if(len == 1) {
-			List<Integer> list = new ArrayList<Integer>();
-			list.add(nums[0]);
-			lists.add(list);
-		}
-		else if(len == 2) {
-			List<Integer> list1 = new ArrayList<Integer>();
-			list1.add(nums[0]);
-			list1.add(nums[1]);
-			lists.add(list1);
-			List<Integer> list2 = new ArrayList<Integer>();
-			list2.add(nums[1]);
-			list2.add(nums[0]);
-			lists.add(list2);
-		}
-		else {
-			int temp;
-			for(int i = 0; i < len; i ++) {
-				temp = nums[i];
-				nums[i] = nums[len - 1];
-				nums[len - 1] = temp;
-				List<List<Integer>> tempList = new ArrayList<List<Integer>>();
-				tempList = doPermutation(nums, len - 1);
-				for(List<Integer> list : tempList) {
-					list.add(nums[len - 1]);
-				}
-				lists.addAll(tempList);
-				temp = nums[i];
-				nums[i] = nums[len - 1];
-				nums[len - 1] = temp;
-			}
-		}
+		backtrack(lists, new ArrayList<>(), nums);
 		return lists;
 	}
-	public static void main(String[] args) {
-		System.out.println(new Solution().permute(new int[]{1, 2, 3}));
-//		System.out.println(new Solution().permute(new int[]{1, 2}));
+	private void backtrack(List<List<Integer>> lists, List<Integer> tempList, int[] nums) {
+		if(tempList.size() == nums.length)
+			lists.add(new ArrayList<>(tempList));
+		else {
+			for(int i = 0; i < nums.length; i ++)
+				if(!tempList.contains(nums[i])) {
+					tempList.add(nums[i]);
+					backtrack(lists, tempList, nums);
+					tempList.remove(tempList.size() - 1);
+				}
+		}
 	}
 }
