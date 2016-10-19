@@ -5,18 +5,14 @@ import java.util.List;
 
 public class Solution {
 	public List<Integer> grayCode(int n) {
-		List<Integer> ret = new ArrayList<Integer>();
-		if(n == 0) {
+		List<Integer> ret = new ArrayList<>();
+		if(n == 0)
 			ret.add(0);
-		}
 		else {
-			List<Integer> temp = grayCode(n - 1);
-			for(Integer i : temp) {
-				ret.add(i);
-			}
-			for(int i = temp.size() - 1; i >= 0; i --) {
-				ret.add(temp.get(i) + (1 << (n - 1)));
-			}
+			List<Integer> tempList = grayCode(n - 1);
+			ret.addAll(tempList);
+			for(int i = tempList.size() - 1; i >= 0; i --)
+				ret.add(tempList.get(i) + (1 << (n - 1)));
 		}
 		return ret;
 	}
