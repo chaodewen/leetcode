@@ -2,18 +2,16 @@ package com.leetcode.no122;
 
 public class Solution {
 	public int maxProfit(int[] prices) {
-		if(prices.length < 2) {
-			return 0;
-		}
-		else {
-			int result = 0;
-			
-			for(int i = 1; i < prices.length; i ++) {
-				if(prices[i] > prices[i - 1]) {
-					result += prices[i] - prices[i - 1];
-				}
+		int profit = 0;
+		for(int low = 0, high = 1; high < prices.length;) {
+			if(prices[high] < prices[high - 1])
+				low = high ++;
+			else {
+				while(high < prices.length && prices[high] >= prices[high - 1])
+					high ++;
+				profit += prices[high - 1] - prices[low];
 			}
-			return result;
 		}
+		return profit;
 	}
 }
