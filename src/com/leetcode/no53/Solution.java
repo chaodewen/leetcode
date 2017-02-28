@@ -1,17 +1,39 @@
 package com.leetcode.no53;
 
 public class Solution {
+	// public int maxSubArray(int[] nums) {
+	//     // write your code
+	//     int sum = nums[0], max = nums[0];
+	//     boolean restart = false;
+
+	//     for(int i = 1; i < nums.length; i ++) {
+	//     	if(restart) {
+	//     		sum = nums[i];
+	//     		restart = false;
+	//     	}
+	//     	else {
+	//     		if(sum + nums[i] < 0) {
+	//     			restart = true;
+	//     		}
+	//     		else {
+	//     			sum = (sum + nums[i] > nums[i]) ? (sum + nums[i]) : nums[i];
+	//     		}
+	//     	}
+
+	//     	max = sum > max ? sum : max;
+	//     }
+
+	//     return max;
+	// }
+
 	public int maxSubArray(int[] nums) {
-		int[] dp = new int[nums.length];
-		dp[0] = nums[0];
-		int max = dp[0];
+		int max = nums[0], last = nums[0];
+
 		for(int i = 1; i < nums.length; i ++) {
-			if(dp[i - 1] < 0)
-				dp[i] = nums[i];
-			else
-				dp[i] = nums[i] + dp[i - 1];
-			max = Math.max(max, dp[i]);
+			last = (last > 0) ? (last + nums[i]) : nums[i];
+			max = max > last ? max : last;
 		}
+
 		return max;
 	}
 }
