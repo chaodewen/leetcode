@@ -2,24 +2,25 @@ package com.leetcode.no215;
 
 public class Solution {
     public int findKthLargest(int[] nums, int k) {
-        return quickFind(nums, k, 0, nums.length - 1);
+        return quickSearch(nums, 0, nums.length - 1, k);
     }
-    private int quickFind(int[] nums, int k, int start, int end) {
-        int pivot = nums[end], left = start;
-        // 换至pivot左边全都比pivot小
-        for(int i = start; i < end; i ++)
-            if(nums[i] <= pivot)
-                swap(nums, i, left ++);
-        swap(nums, end, left);
+    private int quickSearch(int nums[], int left, int right, int k) {
+        int i = left, key = nums[right];
 
-        if(left + k == nums.length)
-            return nums[left];
-        else if(left + k < nums.length)
-            return quickFind(nums, k, left + 1, end);
+        for(int j = left; j < right; j ++)
+            if(nums[j] < key)
+                swap(nums, i ++, j);
+
+        swap(nums, i, right);
+
+        if(right + 1 - i == k)
+            return nums[i];
+        else if(right + 1 - i > k)
+            return quickSearch(nums, i + 1, right, k);
         else
-            return quickFind(nums, k, start, left - 1);
+            return quickSearch(nums, left, i - 1, k - (right + 1 - i));
     }
-    private void swap(int[] nums, int i, int j) {
+    private void swap(int nums[], int i, int j) {
         int temp = nums[i];
         nums[i] = nums[j];
         nums[j] = temp;
