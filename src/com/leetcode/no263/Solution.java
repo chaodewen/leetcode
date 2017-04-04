@@ -2,25 +2,13 @@ package com.leetcode.no263;
 
 public class Solution {
 	public boolean isUgly(int num) {
-		if(num == 0) {
+		if(num <= 0)
 			return false;
-		}
-		else {
-			while(num % 2 == 0) {
-				num /= 2;
-			}
-			while(num % 3 == 0) {
-				num /= 3;
-			}
-			while(num % 5 == 0) {
-				num /= 5;
-			}
-			if(num == 1) {
-				return true;
-			}
-			else {
-				return false;
-			}
-		}
+
+		for(int factor : new int[] { 2, 3, 5 })
+			while(num % factor == 0)
+				num /= factor;
+
+		return num == 1;
 	}
 }
