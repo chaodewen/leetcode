@@ -18,9 +18,9 @@ public class Solution {
             sign = str.charAt(i ++) == '+' ? 1 : -1;
 
         while(i < str.length() && str.charAt(i) >= '0' && str.charAt(i) <= '9') { // 4.跳过非法输入
-            if(base > Integer.MAX_VALUE / 10 || (base == Integer.MAX_VALUE / 10) && str.charAt(i) > '7') { // 5.防溢出负数已考虑
+            if(base > Integer.MAX_VALUE / 10 || base == Integer.MAX_VALUE / 10 && str.charAt(i) > '7') // 5.防溢出负数已考虑
                 return sign == 1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
-            }
+
             base = base * 10 + str.charAt(i ++) - '0'; // 正常运算,注意 2147483640 + 8 = - 2147483648
         }
 
