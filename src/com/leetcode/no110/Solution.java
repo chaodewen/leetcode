@@ -1,12 +1,6 @@
 package com.leetcode.no110;
 
-class TreeNode {
-	int val;
-	TreeNode left, right;
-	TreeNode(int x) {
-		val = x;
-	}
-}
+import com.leetcode.TreeNode;
 
 public class Solution {
 //	private int calDepth(TreeNode root) {

@@ -1,12 +1,6 @@
 package com.leetcode.no101;
 
-class TreeNode {
-	int val;
-	TreeNode left, right;
-	TreeNode(int x) {
-		val = x;
-	}
-}
+import com.leetcode.TreeNode;
 
 public class Solution {
 	private boolean isSym(TreeNode a, TreeNode b) {

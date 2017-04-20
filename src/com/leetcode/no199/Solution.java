@@ -2,16 +2,7 @@ package com.leetcode.no199;
 
 import java.util.ArrayList;
 import java.util.List;
-
-class TreeNode {
-	int val;
-	TreeNode left;
-	TreeNode right;
-
-	TreeNode(int x) {
-		val = x;
-	}
-}
+import com.leetcode.TreeNode;
 
 public class Solution {
     public List<Integer> rightSideView(TreeNode root) {

@@ -3,14 +3,7 @@ package com.leetcode.no111;
 import java.util.LinkedList;
 import java.util.Queue;
 
-class TreeNode {
-	int val;
-	TreeNode left;
-	TreeNode right;
-	TreeNode(int x) {
-		val = x;
-	}
-}
+import com.leetcode.TreeNode;
 
 public class Solution {
     public int minDepth(TreeNode root) {

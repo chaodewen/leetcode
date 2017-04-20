@@ -1,14 +1,6 @@
 package com.leetcode.no100;
 
-class TreeNode {
-	int val;
-	TreeNode left;
-	TreeNode right;
-	TreeNode(int x) {
-		@SuppressWarnings("unused")
-		int val = x;
-	}
-}
+import com.leetcode.TreeNode;
 
 public class Solution {
 	public boolean isSameTree(TreeNode p, TreeNode q) {

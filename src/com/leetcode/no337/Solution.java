@@ -2,15 +2,7 @@ package com.leetcode.no337;
 
 import java.util.HashMap;
 import java.util.Map;
-
-class TreeNode {
-	int val;
-	TreeNode left;
-	TreeNode right;
-	TreeNode(int x) {
-		val = x;
-	}
-}
+import com.leetcode.TreeNode;
 
 public class Solution {
 	Map<TreeNode, Integer> robValue = new HashMap<TreeNode, Integer>();

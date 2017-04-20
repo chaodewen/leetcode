@@ -3,14 +3,7 @@ package com.leetcode.no107;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
-class TreeNode {
-	int val;
-	TreeNode left, right;
-	TreeNode(int x) {
-		val = x;
-	}
-}
+import com.leetcode.TreeNode;
 
 public class Solution {
 	private void getLeaves(List<List<Integer>> ret, List<TreeNode> list) {

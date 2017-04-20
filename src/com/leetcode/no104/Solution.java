@@ -1,13 +1,6 @@
 package com.leetcode.no104;
 
-class TreeNode {
-	int val;
-	TreeNode left;
-	TreeNode right;
-	TreeNode(int x) {
-		val = x;
-	}
-}
+import com.leetcode.TreeNode;
 
 public class Solution {
 	public int maxDepth(TreeNode root) {
